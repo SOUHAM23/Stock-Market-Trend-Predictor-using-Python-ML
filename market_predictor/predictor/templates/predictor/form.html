@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Market Trend Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
+        input[type="number"] {
+            width: 200px;
+            padding: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Market Trend Predictor</h1>
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+    
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Opening Price:</label>
+            <input type="number" step="0.01" name="open" required>
+        </div>
+        <div class="form-group">
+            <label>High Price:</label>
+            <input type="number" step="0.01" name="high" required>
+        </div>
+        <div class="form-group">
+            <label>Low Price:</label>
+            <input type="number" step="0.01" name="low" required>
+        </div>
+        <div class="form-group">
+            <label>Closing Price:</label>
+            <input type="number" step="0.01" name="close" required>
+        </div>
+        <div class="form-group">
+            <label>Volume:</label>
+            <input type="number" name="volume" required>
+        </div>
+        <div class="form-group">
+            <label>Market Cap:</label>
+            <input type="number" name="market_cap" required>
+        </div>
+        <div class="form-group">
+            <label>PE Ratio:</label>
+            <input type="number" step="0.01" name="pe_ratio" required>
+        </div>
+        <div class="form-group">
+            <label>Dividend Yield:</label>
+            <input type="number" step="0.01" name="dividend_yield" required>
+        </div>
+        <div class="form-group">
+            <label>Volatility:</label>
+            <input type="number" step="0.01" name="volatility" required>
+        </div>
+        <div class="form-group">
+            <label>Sentiment Score (-1 to 1):</label>
+            <input type="number" step="0.01" min="-1" max="1" name="sentiment_score" required>
+        </div>
+        <div class="form-group">
+            <label>5-day Moving Average:</label>
+            <input type="number" step="0.01" name="ma5" required>
+        </div>
+        <div class="form-group">
+            <label>20-day Moving Average:</label>
+            <input type="number" step="0.01" name="ma20" required>
+        </div>
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>

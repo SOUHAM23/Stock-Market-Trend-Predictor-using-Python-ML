@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .result {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+        .trend {
+            font-size: 24px;
+            color: #333;
+        }
+        .probabilities {
+            margin-top: 20px;
+        }
+        .probability-item {
+            margin: 10px 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+        .back-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction Results</h1>
+    <div class="result">
+        <div class="trend">
+            Predicted Trend: {{ result.trend }}
+        </div>
+        <div class="probabilities">
+            <h3>Probabilities:</h3>
+            {% for trend, prob in result.probabilities.items %}
+            <div class="probability-item">
+                {{ trend }}: {{ prob|floatformat:4 }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <a href="{% url 'prediction_form' %}" class="back-link">Make another prediction</a>
+</body>
+</html>
