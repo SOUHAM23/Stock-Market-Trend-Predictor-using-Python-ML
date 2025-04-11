@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Read the data
-data = pd.read_csv('huha.csv')
+data = pd.read_csv('data.csv')
 
 def analyze_data(data):
     """Analyze and display market data statistics"""
