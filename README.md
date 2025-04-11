@@ -1,5 +1,8 @@
 # Market Trend Predictor Project
 
+## **Live-Demo**
+http://souham.pythonanywhere.com/
+
 ## Overview
 A web-based machine learning application that predicts market trends (Bearish, Stable, Bullish) using historical market data and various technical indicators.
 
